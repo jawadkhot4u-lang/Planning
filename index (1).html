@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A little something for you &#127800;</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Pacifico&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',sans-serif;background:#fff9fb;min-height:100vh;padding-bottom:80px;overflow-x:hidden;}
+
+/* HERO */
+.hero{position:relative;background:linear-gradient(135deg,#ff6b9d,#c2185b,#880e4f);padding:60px 20px 50px;text-align:center;overflow:hidden;}
+.hero-bg-circle{position:absolute;border-radius:50%;background:rgba(255,255,255,0.07);}
+.c1{width:200px;height:200px;top:-60px;right:-60px;}
+.c2{width:140px;height:140px;bottom:-40px;left:-40px;}
+.c3{width:80px;height:80px;top:30px;left:20px;}
+.floating{position:absolute;font-size:28px;animation:floaty 4s ease-in-out infinite;}
+.f1{top:15px;right:25px;animation-delay:0s;}
+.f2{top:50px;left:15px;animation-delay:1s;}
+.f3{bottom:20px;right:40px;animation-delay:2s;}
+.f4{bottom:30px;left:35px;animation-delay:0.5s;}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(10deg)}}
+.hero-emoji{font-size:60px;display:block;margin-bottom:14px;animation:pop 0.6s cubic-bezier(0.68,-0.55,0.27,1.55) both;}
+@keyframes pop{0%{transform:scale(0)}100%{transform:scale(1)}}
+.hero h1{font-size:26px;font-weight:800;color:white;margin-bottom:10px;line-height:1.3;text-shadow:0 2px 10px rgba(0,0,0,0.2);}
+.hero p{font-size:14px;color:rgba(255,255,255,0.85);line-height:1.7;max-width:300px;margin:0 auto;}
+
+/* HAPPY NEW YEAR BANNER */
+.hny-banner{background:linear-gradient(90deg,#1a1a2e,#16213e,#0f3460,#533483);margin:20px 16px;border-radius:20px;padding:20px;text-align:center;position:relative;overflow:hidden;border:2px solid rgba(255,215,0,0.4);}
+.hny-banner::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(255,215,0,0.03) 10px,rgba(255,215,0,0.03) 20px);}
+.confetti-row{display:flex;justify-content:center;gap:6px;margin-bottom:8px;font-size:20px;}
+.confetti-piece{animation:spin 2s linear infinite;}
+.confetti-piece:nth-child(2){animation-delay:0.3s;}
+.confetti-piece:nth-child(3){animation-delay:0.6s;}
+.confetti-piece:nth-child(4){animation-delay:0.9s;}
+.confetti-piece:nth-child(5){animation-delay:1.2s;}
+@keyframes spin{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(10deg)}}
+.hny-text{font-family:'Pacifico',cursive;font-size:28px;background:linear-gradient(90deg,#ffd700,#ffec6e,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2;text-shadow:none;margin-bottom:6px;position:relative;}
+.hny-sub{font-size:12px;color:rgba(255,255,255,0.6);font-style:italic;position:relative;}
+.sparkle{position:absolute;font-size:16px;animation:sparkle-anim 1.5s ease-in-out infinite;}
+.sp1{top:8px;left:12px;animation-delay:0s;}
+.sp2{top:8px;right:12px;animation-delay:0.5s;}
+.sp3{bottom:8px;left:30px;animation-delay:1s;}
+.sp4{bottom:8px;right:30px;animation-delay:0.3s;}
+@keyframes sparkle-anim{0%,100%{opacity:0.3;transform:scale(0.8)}50%{opacity:1;transform:scale(1.2)}}
+
+/* LETTER */
+.letter{background:white;margin:0 16px 20px;border-radius:20px;padding:24px 20px;box-shadow:0 4px 24px rgba(194,24,91,0.1);border:1px solid #fce4ec;position:relative;}
+.letter::before{content:'&#128140;';position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:28px;}
+.letter p{font-size:14px;line-height:1.9;color:#555;margin-bottom:10px;}
+.letter p:last-child{margin-bottom:0;color:#c2185b;font-weight:700;font-size:15px;}
+.letter .bold-bit{color:#c2185b;font-weight:800;}
+
+/* SECTION */
+.section{margin:0 16px 22px;}
+.stitle{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.09em;color:#c2185b;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.stitle::after{content:'';flex:1;height:1.5px;background:linear-gradient(90deg,#fce4ec,transparent);}
+
+/* CHIPS */
+.chips{display:flex;flex-wrap:wrap;gap:9px;}
+.chip{border:2px solid #fce4ec;border-radius:999px;padding:9px 17px;font-size:13px;font-family:'Nunito',sans-serif;cursor:pointer;color:#880e4f;background:white;font-weight:700;transition:all 0.2s;box-shadow:0 2px 8px rgba(194,24,91,0.06);}
+.chip:hover{border-color:#c2185b;background:#fff0f6;transform:translateY(-2px);box-shadow:0 4px 12px rgba(194,24,91,0.15);}
+.chip.on{border-color:#c2185b;background:linear-gradient(135deg,#e91e63,#c2185b);color:white;transform:translateY(-2px);box-shadow:0 4px 16px rgba(194,24,91,0.35);}
+
+/* VIBE CARDS */
+.vcards{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.vcard{border:2px solid #fce4ec;border-radius:20px;padding:20px 14px;cursor:pointer;background:white;text-align:center;transition:all 0.25s;box-shadow:0 2px 12px rgba(194,24,91,0.06);}
+.vcard:hover{border-color:#c2185b;transform:translateY(-4px);box-shadow:0 8px 24px rgba(194,24,91,0.15);}
+.vcard.on{border:2.5px solid #c2185b;background:linear-gradient(135deg,#fff0f6,#ffe4ef);transform:translateY(-4px);box-shadow:0 8px 24px rgba(194,24,91,0.2);}
+.vcard .icon{font-size:32px;margin-bottom:8px;display:block;}
+.vcard .cname{font-size:14px;font-weight:800;color:#880e4f;margin-bottom:4px;}
+.vcard .csub{font-size:11px;color:#ad1457;line-height:1.4;}
+
+/* LOCATION */
+.ltabs{display:flex;gap:8px;margin-bottom:14px;}
+.ltab{flex:1;padding:10px 6px;border-radius:999px;border:2px solid #fce4ec;font-size:12px;font-weight:800;cursor:pointer;color:#ad1457;background:white;text-align:center;transition:all 0.2s;font-family:'Nunito',sans-serif;}
+.ltab.on{background:linear-gradient(135deg,#e91e63,#c2185b);color:white;border-color:#c2185b;box-shadow:0 4px 14px rgba(194,24,91,0.3);}
+.lpanel{display:none;}
+.lpanel.on{display:flex;flex-direction:column;gap:10px;}
+.lcard{border:2px solid #fce4ec;border-radius:18px;padding:14px;cursor:pointer;background:white;transition:all 0.2s;display:flex;gap:12px;box-shadow:0 2px 10px rgba(194,24,91,0.05);}
+.lcard:hover{border-color:#c2185b;transform:translateY(-2px);box-shadow:0 6px 20px rgba(194,24,91,0.12);}
+.lcard.on{border:2.5px solid #c2185b;background:linear-gradient(135deg,#fff0f6,#ffe4ef);}
+.lcard .le{font-size:28px;flex-shrink:0;margin-top:2px;}
+.lname{font-size:14px;font-weight:800;color:#880e4f;margin-bottom:3px;}
+.ldesc{font-size:11px;color:#666;line-height:1.5;margin-bottom:5px;}
+.lbadge{font-size:10px;padding:3px 10px;border-radius:999px;background:linear-gradient(90deg,#fce4ec,#f8bbd0);color:#c2185b;font-weight:800;display:inline-block;}
+
+
+
+/* DATE */
+.drow{display:flex;gap:10px;}
+.drow select{flex:1;border:2px solid #fce4ec;border-radius:14px;padding:11px 10px;font-size:13px;font-family:'Nunito',sans-serif;color:#880e4f;background:white;font-weight:700;-webkit-appearance:none;cursor:pointer;}
+.drow select:focus{outline:none;border-color:#c2185b;}
+
+/* HONEST Q */
+.qbox{background:linear-gradient(135deg,#fff8e1,#fff3e0);border:2px solid #ffe082;border-radius:18px;padding:18px;margin-bottom:14px;}
+.qicon{font-size:28px;margin-bottom:8px;display:block;text-align:center;}
+.qtext{font-size:13px;color:#5d4037;margin-bottom:12px;line-height:1.6;text-align:center;font-weight:600;}
+.qchips{display:flex;flex-direction:column;gap:9px;}
+.qchip{border:2px solid #ffe082;border-radius:14px;padding:11px 14px;font-size:13px;cursor:pointer;font-family:'Nunito',sans-serif;font-weight:700;color:#5d4037;background:white;transition:all 0.2s;text-align:left;}
+.qchip:hover{border-color:#ff9800;background:#fff8e1;transform:translateX(4px);}
+.qchip.on{border-color:#ff9800;background:linear-gradient(135deg,#ff9800,#f57c00);color:white;transform:translateX(4px);}
+
+/* SUBMIT */
+.submit-wrap{padding:0 16px;}
+.submit-btn{width:100%;padding:18px;border-radius:999px;background:linear-gradient(135deg,#ff6b9d,#c2185b);color:white;font-size:16px;font-weight:800;border:none;cursor:pointer;font-family:'Nunito',sans-serif;box-shadow:0 6px 24px rgba(194,24,91,0.4);transition:all 0.2s;letter-spacing:0.02em;}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(194,24,91,0.5);}
+.submit-btn:active{transform:translateY(0);}
+
+/* DONE */
+.done{display:none;text-align:center;padding:80px 20px;background:linear-gradient(135deg,#fff9fb,#fff0f6);min-height:100vh;}
+.done .big{font-size:80px;margin-bottom:20px;animation:pop 0.6s cubic-bezier(0.68,-0.55,0.27,1.55) both;}
+.done h2{font-size:24px;font-weight:800;color:#c2185b;margin-bottom:10px;}
+.done p{font-size:15px;color:#888;line-height:1.8;}
+.done .hny2{font-family:'Pacifico',cursive;font-size:22px;color:#f57f17;margin-top:20px;display:block;}
+
+/* FIREWORKS */
+.fw{position:fixed;pointer-events:none;top:0;left:0;width:100%;height:100%;z-index:999;display:none;}
+.fw.show{display:block;}
+</style>
+</head>
+<body>
+
+<div id="form">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-bg-circle c1"></div>
+    <div class="hero-bg-circle c2"></div>
+    <div class="hero-bg-circle c3"></div>
+    <span class="floating f1">&#127800;</span>
+    <span class="floating f2">&#10024;</span>
+    <span class="floating f3">&#127801;</span>
+    <span class="floating f4">&#128149;</span>
+    <span class="hero-emoji">&#127908;</span>
+    <h1>Hey, this one's for you</h1>
+    <p>Someone who genuinely cares put this together — no pressure, just a little love &#128155;</p>
+  </div>
+
+  <!-- HAPPY NEW YEAR BANNER -->
+  <div class="hny-banner">
+    <span class="sparkle sp1">&#10024;</span>
+    <span class="sparkle sp2">&#10024;</span>
+    <span class="sparkle sp3">&#127775;</span>
+    <span class="sparkle sp4">&#127775;</span>
+    <div class="confetti-row">
+      <span class="confetti-piece">&#127881;</span>
+      <span class="confetti-piece">&#127882;</span>
+      <span class="confetti-piece">&#127880;</span>
+      <span class="confetti-piece">&#127882;</span>
+      <span class="confetti-piece">&#127881;</span>
+    </div>
+    <div class="hny-text">HAPPY NEW YEAR!!!</div>
+    <div class="hny-sub">It's time. As I said. &#128514; &#128514; &#128514;</div>
+  </div>
+
+  <!-- LETTER -->
+  <div class="letter">
+    <p>I know you've been carrying something lately. I don't know what exactly, and I'm not asking you to explain.</p>
+    <p>But I miss <span class="bold-bit">us</span>. The version where we just talked. About anything. About nothing. About everything in between.</p>
+    <p>As I said <span class="bold-bit">&#128514;&#128514; — it's time.</span> Pick what sounds good. Whatever you choose, I'll make it happen. I'll handle everything.</p>
+    <p>Only one condition — we both survive this <span class="bold-bit">Dubai heat together &#9728;&#65039;&#128293;</span> 45°C outside and neither of us has any excuse anymore. We're going. &#128514;</p>
+    <p>Tell me what would make you smile. That's all I want. &#127800;</p>
+  </div>
+
+  <!-- MOOD -->
+  <div class="section">
+    <div class="stitle">&#128173; How have you been lately?</div>
+    <div class="chips">
+      <div class="chip" data-g="mood" data-v="Honestly not great" onclick="pick(this)">Honestly not great &#128542;</div>
+      <div class="chip" data-g="mood" data-v="Just really tired" onclick="pick(this)">Just really tired &#128564;</div>
+      <div class="chip" data-g="mood" data-v="Missing something" onclick="pick(this)">Missing something &#128173;</div>
+      <div class="chip" data-g="mood" data-v="Actually okay" onclick="pick(this)">Actually okay &#128578;</div>
+      <div class="chip" data-g="mood" data-v="It's complicated" onclick="pick(this)">It's complicated &#127744;</div>
+    </div>
+  </div>
+
+  <!-- VIBE -->
+  <div class="section">
+    <div class="stitle">&#127801; What kind of vibe?</div>
+    <div class="vcards">
+      <div class="vcard" data-g="vibe" data-v="Romantic" onclick="pickCard(this,'vibe')">
+        <span class="icon">&#127801;</span>
+        <div class="cname">Romantic</div>
+        <div class="csub">Candles, music, close table, soft lights</div>
+      </div>
+      <div class="vcard" data-g="vibe" data-v="Just friends" onclick="pickCard(this,'vibe')">
+        <span class="icon">&#128522;</span>
+        <div class="cname">Just friends</div>
+        <div class="csub">Easy, chill, laugh a lot, no pressure</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DURATION -->
+  <div class="section">
+    <div class="stitle">&#9200; How long?</div>
+    <div class="chips">
+      <div class="chip" data-g="duration" data-v="Just a few hours" onclick="pick(this)">Just a few hours &#9749;</div>
+      <div class="chip" data-g="duration" data-v="Half a day" onclick="pick(this)">Half a day &#127780;</div>
+      <div class="chip" data-g="duration" data-v="Full day and night" onclick="pick(this)">Full day + night &#127769;</div>
+    </div>
+  </div>
+
+  <!-- LOCATION -->
+  <div class="section">
+    <div class="stitle">&#128205; Where sounds good?</div>
+    <div class="ltabs">
+      <div class="ltab on" onclick="switchLoc('dubai',this)">&#128205; Dubai</div>
+      <div class="ltab" onclick="switchLoc('hatta',this)">&#9968; Hatta</div>
+      <div class="ltab" onclick="switchLoc('abudhabi',this)">&#127750; Abu Dhabi</div>
+    </div>
+
+    <div class="lpanel on" id="lp-dubai">
+      <div class="lcard" data-g="location" data-v="La Mer Beach Dubai" data-budget="50" onclick="pickLoc(this)">
+        <div class="le">&#128026;</div><div><div class="lname">La Mer Beach</div><div class="ldesc">Free beach, cute cafes, art walls. Easy and relaxed.</div><div class="lbadge">Beach &bull; Free Entry</div></div>
+      </div>
+      <div class="lcard" data-g="location" data-v="Al Seef Waterfront Dubai" data-budget="80" onclick="pickLoc(this)">
+        <div class="le">&#127965;</div><div><div class="lname">Al Seef Heritage Waterfront</div><div class="ldesc">Canalside walk, Arabic architecture, cozy restaurants by the water at night.</div><div class="lbadge">Riverside &bull; Romantic</div></div>
+      </div>
+      <div class="lcard" data-g="location" data-v="JBR Walk and Beach Dubai" data-budget="100" onclick="pickLoc(this)">
+        <div class="le">&#127754;</div><div><div class="lname">JBR Walk + The Beach</div><div class="ldesc">Beachside vibes, food spots, sea breeze and evening lights.</div><div class="lbadge">Beach &bull; Fun</div></div>
+      </div>
+      <div class="lcard" data-g="location" data-v="Dubai Creek Abra ride" data-budget="70" onclick="pickLoc(this)">
+        <div class="le">&#9968;</div><div><div class="lname">Dubai Creek + Abra Ride</div><div class="ldesc">Old Dubai charm, spice souk, magical abra ride across the creek.</div><div class="lbadge">Old Dubai &bull; Unique</div></div>
+      </div>
+    </div>
+
+    <div class="lpanel" id="lp-hatta">
+      <div class="lcard" data-g="location" data-v="Hatta Dam and Kayaking" data-budget="150" onclick="pickLoc(this)">
+        <div class="le">&#128167;</div><div><div class="lname">Hatta Dam + Kayaking</div><div class="ldesc">Turquoise lake, mountain air, kayak rental. Peaceful and breathtaking.</div><div class="lbadge">Nature &bull; Adventure</div></div>
+      </div>
+      <div class="lcard" data-g="location" data-v="Hatta Wadi Hub" data-budget="180" onclick="pickLoc(this)">
+        <div class="le">&#127957;</div><div><div class="lname">Hatta Wadi Hub</div><div class="ldesc">Zip lines, mountain bikes, kayaking. A full adventure day together.</div><div class="lbadge">Full Day &bull; Thrilling</div></div>
+      </div>
+      <div class="lcard" data-g="location" data-v="Hatta Heritage Village" data-budget="80" onclick="pickLoc(this)">
+        <div class="le">&#127981;</div><div><div class="lname">Hatta Heritage Village</div><div class="ldesc">Ancient Emirati life, mountain views. Very chill and scenic.</div><div class="lbadge">Culture &bull; Peaceful</div></div>
+      </div>
+    </div>
+
+    <div class="lpanel" id="lp-abudhabi">
+      <div class="lcard" data-g="location" data-v="Sheikh Zayed Mosque and Corniche" data-budget="80" onclick="pickLoc(this)">
+        <div class="le">&#128331;</div><div><div class="lname">Sheikh Zayed Mosque + Corniche</div><div class="ldesc">Most breathtaking building in the world, then sunset walk by the water.</div><div class="lbadge">Iconic &bull; Sunset</div></div>
+      </div>
+      <div class="lcard" data-g="location" data-v="Louvre Abu Dhabi" data-budget="130" onclick="pickLoc(this)">
+        <div class="le">&#127912;</div><div><div class="lname">Louvre Abu Dhabi</div><div class="ldesc">World-class art by the sea. Beautiful and great for deep conversations.</div><div class="lbadge">Art &bull; Cultural</div></div>
+      </div>
+      <div class="lcard" data-g="location" data-v="Saadiyat Island Beach Abu Dhabi" data-budget="120" onclick="pickLoc(this)">
+        <div class="le">&#127965;</div><div><div class="lname">Saadiyat Island Beach</div><div class="ldesc">Cleanest white sand in UAE. Calm, beautiful day by the sea.</div><div class="lbadge">Beach &bull; Luxe Feel</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HER OWN PLACE SUGGESTION -->
+  <div class="section">
+    <div class="stitle">&#128221; Got a place in mind?</div>
+    <div style="background:white;border:2px solid #fce4ec;border-radius:18px;padding:16px;">
+      <div style="font-size:12px;color:#ad1457;font-weight:700;margin-bottom:8px;">Type a place or vibe you love &#128149;</div>
+      <input type="text" id="custom-place" placeholder="e.g. somewhere by the water, a cozy cafe, rooftop..." 
+        oninput="updateState('custom_place',this.value)"
+        style="width:100%;border:2px solid #fce4ec;border-radius:12px;padding:11px 14px;font-size:13px;font-family:'Nunito',sans-serif;color:#880e4f;font-weight:600;outline:none;transition:border 0.2s;"
+        onfocus="this.style.borderColor='#c2185b'" onblur="this.style.borderColor='#fce4ec'">
+      <div style="font-size:11px;color:#aaa;margin-top:8px;text-align:center;">or pick a vibe below &#128071;</div>
+      <div class="chips" style="margin-top:10px;">
+        <div class="chip" data-g="place_vibe" data-v="Somewhere with a view" onclick="pick(this)">&#128064; Somewhere with a view</div>
+        <div class="chip" data-g="place_vibe" data-v="Cozy indoor cafe" onclick="pick(this)">&#9749; Cozy indoor cafe</div>
+        <div class="chip" data-g="place_vibe" data-v="By the sea or water" onclick="pick(this)">&#127754; By the sea</div>
+        <div class="chip" data-g="place_vibe" data-v="Mall or indoor" onclick="pick(this)">&#127978; Mall or indoor</div>
+        <div class="chip" data-g="place_vibe" data-v="Nature and open air" onclick="pick(this)">&#127795; Nature and open air</div>
+        <div class="chip" data-g="place_vibe" data-v="Surprise me completely" onclick="pick(this)">&#10024; Surprise me completely</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DRINKS -->
+  <div class="section">
+    <div class="stitle">&#127863; Drinks?</div>
+    <div class="chips">
+      <div class="chip" data-g="drinks" data-v="Mocktails only" onclick="pick(this)">Mocktails only &#129380;</div>
+      <div class="chip" data-g="drinks" data-v="Wine" onclick="pick(this)">Wine &#127863;</div>
+      <div class="chip" data-g="drinks" data-v="Cocktails" onclick="pick(this)">Cocktails &#127865;</div>
+      <div class="chip" data-g="drinks" data-v="Hard drinks" onclick="pick(this)">Hard drinks &#129347;</div>
+    </div>
+  </div>
+
+  <!-- FOOD -->
+  <div class="section">
+    <div class="stitle">&#127859; Food vibes? (pick all you like)</div>
+    <div class="chips">
+      <div class="chip multi" data-g="cuisine" data-v="Filipino" onclick="pickMulti(this)">Filipino &#127863;</div>
+      <div class="chip multi" data-g="cuisine" data-v="Indian" onclick="pickMulti(this)">Indian &#127859;</div>
+      <div class="chip multi" data-g="cuisine" data-v="Chinese" onclick="pickMulti(this)">Chinese &#129346;</div>
+      <div class="chip multi" data-g="cuisine" data-v="Korean" onclick="pickMulti(this)">Korean &#127868;</div>
+      <div class="chip multi" data-g="cuisine" data-v="Japanese" onclick="pickMulti(this)">Japanese &#127857;</div>
+      <div class="chip multi" data-g="cuisine" data-v="Italian" onclick="pickMulti(this)">Italian &#127837;</div>
+      <div class="chip multi" data-g="cuisine" data-v="Arabic" onclick="pickMulti(this)">Arabic &#129361;</div>
+      <div class="chip multi" data-g="cuisine" data-v="Surprise me" onclick="pickMulti(this)">Surprise me &#10024;</div>
+    </div>
+  </div>
+
+  <!-- HOT WEATHER -->
+  <div class="section">
+    <div class="stitle">&#9728;&#65039; The Dubai heat situation</div>
+    <div style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);border:2px solid #ffcc02;border-radius:18px;padding:16px 18px;margin-bottom:0;">
+      <div style="font-size:26px;text-align:center;margin-bottom:8px;">&#9728;&#65039;&#128293;&#128167;</div>
+      <div style="font-size:13px;font-weight:800;color:#e65100;text-align:center;margin-bottom:6px;">It's going to be 45&#176;C. We both know this.</div>
+      <div style="font-size:12px;color:#bf360c;text-align:center;line-height:1.6;margin-bottom:12px;">How do you want to handle it like the two survivors we are? &#128514;</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div class="chip" style="border-radius:14px;border-color:#ffcc02;background:white;color:#e65100;" data-g="heat" data-v="Indoor AC all the way - I refuse to sweat" onclick="pick(this)">&#10052;&#65039; Indoor AC all the way. I refuse to sweat.</div>
+        <div class="chip" style="border-radius:14px;border-color:#ffcc02;background:white;color:#e65100;" data-g="heat" data-v="Pool or beach - let the water save us" onclick="pick(this)">&#127946; Pool or beach. Let the water save us.</div>
+        <div class="chip" style="border-radius:14px;border-color:#ffcc02;background:white;color:#e65100;" data-g="heat" data-v="Morning or evening only - outsmart the sun" onclick="pick(this)">&#127759; Morning or evening only. Outsmart the sun.</div>
+        <div class="chip" style="border-radius:14px;border-color:#ffcc02;background:white;color:#e65100;" data-g="heat" data-v="We are Dubai people. We can handle it. Let's go." onclick="pick(this)">&#128293; We're Dubai people. We handle it. Let's go.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DATE -->
+  <div class="section">
+    <div class="stitle">&#128197; Pick a date (late July)</div>
+    <div class="drow">
+      <select onchange="updateState('day',this.value)">
+        <option value="">Day</option>
+        <option value="July 24 Thursday">24 Thu</option>
+        <option value="July 25 Friday">25 Fri &#127775;</option>
+        <option value="July 26 Saturday">26 Sat &#127775;</option>
+        <option value="July 27 Sunday">27 Sun</option>
+        <option value="July 28 Monday">28 Mon</option>
+        <option value="July 29 Tuesday">29 Tue</option>
+        <option value="July 30 Wednesday">30 Wed</option>
+        <option value="July 31 Thursday">31 Thu</option>
+      </select>
+      <select onchange="updateState('time',this.value)">
+        <option value="">Time</option>
+        <option>10:00 AM</option>
+        <option>12:00 PM</option>
+        <option>2:00 PM</option>
+        <option>5:00 PM</option>
+        <option>6:00 PM</option>
+        <option>7:00 PM</option>
+        <option>8:00 PM</option>
+      </select>
+    </div>
+  </div>
+
+
+
+  <!-- HONEST Q -->
+  <div class="section">
+    <div class="stitle">&#128155; One honest question</div>
+    <div class="qbox">
+      <span class="qicon">&#128172;</span>
+      <div class="qtext">What does this time together actually mean to you?<br><span style="font-size:11px;color:#8d6e63;font-weight:400;">(Just between us. Be honest.)</span></div>
+      <div class="qchips">
+        <div class="qchip" data-g="feeling" data-v="I really want this, honestly been waiting" onclick="pickQ(this)">&#128922; I really want this. Been waiting honestly.</div>
+
+        <div class="qchip" data-g="feeling" data-v="I need this right now I am not okay" onclick="pickQ(this)">&#128153; I need this right now. I'm not okay.</div>
+        <div class="qchip" data-g="feeling" data-v="I am scared of getting hurt again" onclick="pickQ(this)">&#128532; I'm scared of getting hurt again.</div>
+        <div class="qchip" data-g="feeling" data-v="I honestly do not know what I want yet" onclick="pickQ(this)">&#127744; I honestly don't know what I want yet.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="submit-wrap">
+    <button class="submit-btn" onclick="submitAnswers()">Send my answer &#128140; &#127800;</button>
+  </div>
+  <br><br>
+</div>
+
+<!-- DONE SCREEN -->
+<div class="done" id="done">
+  <div class="big">&#127881;</div>
+  <h2>Sent! &#127800;</h2>
+  <p>Your answers are on the way.<br><br>And yes — <strong>HAPPY NEW YEAR.</strong><br>It's time. As promised. &#128514;</p>
+  <span class="hny2">&#127881; HAPPY NEW YEAR &#127881;</span>
+  <div style="margin-top:16px;font-size:13px;color:#888;">Now hydrate. It's 45°C out there. &#9728;&#65039;&#128293;</div>
+</div>
+
+<canvas class="fw" id="fw"></canvas>
+
+<script>
+const urlP = new URLSearchParams(window.location.search);
+const inviteId = '6a3c9adaf5f4af5e292c700e';
+const API_KEY = '$2a$10$zFFEwc2Ux/OP2DIVLdE21uDyZ1LDo/jPJV3nGqXXQN/x5mRqNzL0O';
+const state = {mood:'',vibe:'',duration:'',location:'',drinks:'',cuisine:[],day:'',time:'',feeling:'',openedAt:new Date().toISOString(),changes:[],submitted:false};
+
+function log(field,val){state.changes.push({field,val,at:new Date().toISOString()});sync();}
+
+function pick(el){
+  const g=el.dataset.g;
+  document.querySelectorAll('[data-g="'+g+'"]').forEach(c=>c.classList.remove('on'));
+  el.classList.toggle('on');
+  state[g]=el.classList.contains('on')?el.dataset.v:'';
+  log(g,state[g]);
+}
+
+function pickCard(el,g){
+  document.querySelectorAll('[data-g="'+g+'"]').forEach(c=>c.classList.remove('on'));
+  el.classList.add('on');
+  state[g]=el.dataset.v;
+  log(g,state[g]);
+}
+
+function pickMulti(el){
+  el.classList.toggle('on');
+  state.cuisine=Array.from(document.querySelectorAll('.chip.multi.on')).map(c=>c.dataset.v);
+  log('cuisine',state.cuisine.join(', '));
+}
+
+function pickLoc(el){
+  document.querySelectorAll('.lcard').forEach(c=>c.classList.remove('on'));
+  el.classList.add('on');
+  state.location=el.dataset.v;
+  log('location',state.location);
+  // budget tracked silently
+}
+
+function pickQ(el){
+  document.querySelectorAll('.qchip').forEach(c=>c.classList.remove('on'));
+  el.classList.add('on');
+  state.feeling=el.dataset.v;
+  log('feeling',state.feeling);
+}
+
+function updateState(f,v){state[f]=v;log(f,v);}
+
+function switchLoc(area,tab){
+  document.querySelectorAll('.ltab').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.lpanel').forEach(p=>p.classList.remove('on'));
+  tab.classList.add('on');
+  document.getElementById('lp-'+area).classList.add('on');
+  document.querySelectorAll('.lcard').forEach(c=>c.classList.remove('on'));
+  state.location='';
+}
+
+async function sync(){
+  if(!API_KEY||!inviteId)return;
+  try{
+    await fetch('https://api.jsonbin.io/v3/b/'+inviteId,{
+      method:'PUT',
+      headers:{'Content-Type':'application/json','X-Master-Key':API_KEY},
+      body:JSON.stringify({...state,lastUpdated:new Date().toISOString()})
+    });
+  }catch(e){}
+}
+
+async function submitAnswers(){
+  state.submitted=true;
+  state.submittedAt=new Date().toISOString();
+  await sync();
+  launchFireworks();
+  setTimeout(()=>{
+    document.getElementById('form').style.display='none';
+    document.getElementById('done').style.display='block';
+    document.getElementById('fw').style.display='none';
+  },3000);
+}
+
+/* FIREWORKS */
+function launchFireworks(){
+  const canvas=document.getElementById('fw');
+  canvas.classList.add('show');
+  canvas.width=window.innerWidth;
+  canvas.height=window.innerHeight;
+  const ctx=canvas.getContext('2d');
+  const particles=[];
+  const colors=['#ff6b9d','#ffd700','#c2185b','#ff80ab','#fff','#ffec6e','#80cbc4'];
+  for(let i=0;i<120;i++){
+    const angle=Math.random()*Math.PI*2;
+    const speed=2+Math.random()*6;
+    particles.push({
+      x:canvas.width/2,y:canvas.height/2,
+      vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed-4,
+      color:colors[Math.floor(Math.random()*colors.length)],
+      life:1,size:4+Math.random()*4
+    });
+  }
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particles.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy; p.vy+=0.1; p.life-=0.015;
+      ctx.globalAlpha=p.life;
+      ctx.fillStyle=p.color;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.size*p.life,0,Math.PI*2);
+      ctx.fill();
+    });
+    if(particles.some(p=>p.life>0))requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+window.addEventListener('load', async () => {
+  try {
+    const res = await fetch('https://api.jsonbin.io/v3/b/6a3c9adaf5f4af5e292c700e/latest', {
+      headers: { 'X-Master-Key': '$2a$10$zFFEwc2Ux/OP2DIVLdE21uDyZ1LDo/jPJV3nGqXXQN/x5mRqNzL0O' }
+    });
+    const json = await res.json();
+    const existing = json.record || {};
+    const visits = existing.visits || [];
+    visits.push({ at: new Date().toISOString() });
+    state.visits = visits;
+    state.visitCount = visits.length;
+    state.firstOpenedAt = existing.firstOpenedAt || new Date().toISOString();
+    state.openedAt = new Date().toISOString();
+    if(existing.mood) state.mood = existing.mood;
+    if(existing.vibe) state.vibe = existing.vibe;
+    if(existing.feeling) state.feeling = existing.feeling;
+    if(existing.location) state.location = existing.location;
+    if(existing.duration) state.duration = existing.duration;
+    if(existing.drinks) state.drinks = existing.drinks;
+    if(existing.cuisine && existing.cuisine.length) state.cuisine = existing.cuisine;
+    if(existing.day) state.day = existing.day;
+    if(existing.time) state.time = existing.time;
+    await sync();
+  } catch(e) {
+    state.openedAt = new Date().toISOString();
+    state.visits = [{at: new Date().toISOString()}];
+    state.visitCount = 1;
+    await sync();
+  }
+});
+</script>
+</body>
+</html>
